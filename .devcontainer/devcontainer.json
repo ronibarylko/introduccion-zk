@@ -1,0 +1,36 @@
+{
+  "name": "SageMath ZK",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Mount the workspace into the container
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/sage/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/home/sage/workspace",
+
+  // VS Code extensions to install inside the container
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-python.python"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/home/sage/sage/local/var/lib/sage/venv-python3.12.5/bin/sage"
+      }
+    }
+  },
+
+  // Run as the sage user
+  "remoteUser": "sage",
+
+  // Forward Jupyter port in case you still want browser access
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "Jupyter",
+      "onAutoForward": "silent"
+    }
+  }
+}

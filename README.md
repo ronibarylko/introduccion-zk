@@ -9,7 +9,7 @@ Estos ejercicios están basados en los [zk adventures](https://github.com/eryxco
 First time:
 use `pwd` to get the global path to this repo and replace it in the command below.
 ```bash
-docker run -v /global/path/to/this/repo:/home/sage/zk-intro --name sage-intro-zk -p 8888:8888 sagemath/sagemath:latest sage-jupyter
+docker run -v /global/path/to/this/repo:/home/sage/zk-intro --name sage-intro-zk -p 8888:8888 sagemath/sagemath:10.8 sage-jupyter
 ```
 Check out URL of the logs to navigate to the sage notebook: `http://127.0.0.1:8888/?token=some-random-token`
 
